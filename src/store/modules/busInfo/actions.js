@@ -28,3 +28,39 @@ export function getNewInfo() {
     };
 
 }
+
+//Função que adiciona Action Start no Search Buslines
+export function searchBusLinesStart() {
+    //Retorna o Redux Action busInfo/SEARCH_BUSLINES_START
+    return {
+        type: 'busInfo/SEARCH_BUSLINES_START',
+    };
+}
+
+//Função que adiciona a Saga para buscar as linhas
+export function searchBusLines(search) {
+    //Retorna o Redux Action busInfo/SEARCH_BUSLINES
+    //para chamar a Saga
+    return {
+        type: 'busInfo/SEARCH_BUSLINES',
+        payload: { search },
+    };
+}
+
+//Função que adiciona Action Finish Success no Search Buslines
+export function searchBusLinesFinishSuccess(busLines, apiToken) {
+    //Retorna o Redux Action busInfo/SEARCH_BUSLINES_FINISH_SUCCESS
+    return {
+        type: 'busInfo/SEARCH_BUSLINES_FINISH_SUCCESS',
+        payload: { busLines, apiToken },
+    };
+}
+
+//Função que adiciona Action Finish Error no Search Buslines
+export function searchBusLinesFinishError() {
+    //Retorna o Redux Action busInfo/SEARCH_BUSLINES_FINISH_ERROR
+    return {
+        type: 'busInfo/SEARCH_BUSLINES_FINISH_ERROR',
+        payload: {  },
+    };
+}

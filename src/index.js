@@ -10,6 +10,9 @@ import store from './store/store';
 //Importa o Provider do React Redux
 import { Provider } from 'react-redux';
 
+//Importa o Css do bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>

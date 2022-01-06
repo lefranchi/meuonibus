@@ -1,33 +1,45 @@
 /**
  * Controller do componente BusLine
  */
-
- import React from 'react';
+ import React, {useState} from 'react';
  import BusLineView from './BusLineView'
-
  //Importa as actions
  import {
-     getNewInfo,
+     searchBusLines,
  } from '../../store/modules/busInfo/actions';
-
  //importa as funções useDispatch e useSelector do React Redux
  import { useDispatch, useSelector } from 'react-redux';
-
  const BusLineController = () => {
-     //Busca a variavel info do Reducer
-     const info = useSelector((state) => state.busInfo.info);
+     //Busca as variáveis do Reducer
+     const busLines = useSelector((state) => state.busInfo.busLines);
+     const isConnectingSearchBusLines = useSelector((state) => state.busInfo.isConnectingSearchBusLines);
+     const searchBusLinesWithSuccess = useSelector((state) => state.busInfo.searchBusLinesWithSuccess);
      //Inicia o dispatch
      const dispatch = useDispatch();
+     //Inicia o SearchText state
+     const [searchText, setSearchText] = useState('');
+     //função que é chamada quando o texto do search é chamado
+     const onTextChange = (e) => {
+         console.log(e.target.value);
+         setSearchText(e.target.value);
+     }
      //função que será chamada ao clicar no botão
-     const changeInfoSaga = () => {
+     const findBusLines = () => {
          //Despacha o Redux Action presente no getNewInfo para chamar a Saga
-         dispatch(getNewInfo());
+         dispatch(searchBusLines(searchText));
+     }
+     //função que será chamada ao escolher uma linha
+     const chooseBusLine = (busLine) => {
+         //Por enquanto não fazemos nada
      }
      return (
-         //Chamando o View e passando o props info e a funçao changeInfoSaga
          <BusLineView 
-             info={info}
-             changeInfoSaga={changeInfoSaga}
+             onTextChange={onTextChange}
+             findBusLines={findBusLines}
+             busLines={busLines}
+             isConnectingSearchBusLines={isConnectingSearchBusLines}
+             searchBusLinesWithSuccess={searchBusLinesWithSuccess}
+             chooseBusLine={chooseBusLine}
          />
      )
  }
