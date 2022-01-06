@@ -84,3 +84,37 @@ export default all([
     takeLatest('busInfo/GET_NEW_INFO', getNewInfo),
     takeLatest('busInfo/SEARCH_BUSLINES', getBusLines),
 ]);
+
+//Função que adiciona Action Start no Get Buslines Stops
+export function getBusLineStopsStart(busLine) {
+    //Retorna o Redux Action busInfo/GET_BUSLINES_STOPS_START
+    return {
+        type: 'busInfo/GET_BUSLINES_STOPS_START',
+        payload: { busLine },
+    };
+}
+//Função que adiciona a Saga para buscar as paradas da linha
+export function getBusLineStops(busLine) {
+    //Retorna o Redux Action busInfo/GET_BUSLINES_STOPS
+    //para chamar a Saga
+    return {
+        type: 'busInfo/GET_BUSLINES_STOPS',
+        payload: { busLine },
+    };
+}
+//Função que adiciona Action Finish Success no Get Buslines Stops
+export function getBusLineStopsFinishSuccess(busStops) {
+    //Retorna o Redux Action busInfo/GET_BUSLINES_STOPS_FINISH_SUCCESS
+    return {
+        type: 'busInfo/GET_BUSLINES_STOPS_FINISH_SUCCESS',
+        payload: { busStops },
+    };
+}
+//Função que adiciona Action Finish Error no Get Buslines Stops
+export function getBusLineStopsFinishError() {
+    //Retorna o Redux Action busInfo/GET_BUSLINES_STOPS_FINISH_ERROR
+    return {
+        type: 'busInfo/GET_BUSLINES_STOPS_FINISH_ERROR',
+        payload: {  },
+    };
+}

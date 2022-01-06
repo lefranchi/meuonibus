@@ -6,11 +6,12 @@
  //Importa as actions
  import {
      searchBusLines,
+     getBusLineStops,
  } from '../../store/modules/busInfo/actions';
  //importa as funções useDispatch e useSelector do React Redux
  import { useDispatch, useSelector } from 'react-redux';
  const BusLineController = () => {
-     //Busca as variáveis do Reducer
+     //Busca as variaveis do Reducer
      const busLines = useSelector((state) => state.busInfo.busLines);
      const isConnectingSearchBusLines = useSelector((state) => state.busInfo.isConnectingSearchBusLines);
      const searchBusLinesWithSuccess = useSelector((state) => state.busInfo.searchBusLinesWithSuccess);
@@ -30,7 +31,7 @@
      }
      //função que será chamada ao escolher uma linha
      const chooseBusLine = (busLine) => {
-         //Por enquanto não fazemos nada
+         dispatch(getBusLineStops(busLine));
      }
      return (
          <BusLineView 

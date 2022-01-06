@@ -64,3 +64,48 @@ export function searchBusLinesFinishError() {
         payload: {  },
     };
 }
+
+//Função que adiciona Action Start no Get Buslines Stops
+export function getBusLineStopsStart(busLine) {
+    //Retorna o Redux Action busInfo/GET_BUSLINES_STOPS_START
+    return {
+        type: 'busInfo/GET_BUSLINES_STOPS_START',
+        payload: { busLine },
+    };
+}
+//Função que adiciona a Saga para buscar as paradas da linha
+export function getBusLineStops(busLine) {
+    //Retorna o Redux Action busInfo/GET_BUSLINES_STOPS
+    //para chamar a Saga
+    return {
+        type: 'busInfo/GET_BUSLINES_STOPS',
+        payload: { busLine },
+    };
+}
+//Função que adiciona Action Finish Success no Get Buslines Stops
+export function getBusLineStopsFinishSuccess(busStops) {
+    //Retorna o Redux Action busInfo/GET_BUSLINES_STOPS_FINISH_SUCCESS
+    return {
+        type: 'busInfo/GET_BUSLINES_STOPS_FINISH_SUCCESS',
+        payload: { busStops },
+    };
+}
+//Função que adiciona Action Finish Error no Get Buslines Stops
+export function getBusLineStopsFinishError() {
+    //Retorna o Redux Action busInfo/GET_BUSLINES_STOPS_FINISH_ERROR
+    return {
+        type: 'busInfo/GET_BUSLINES_STOPS_FINISH_ERROR',
+        payload: {  },
+    };
+}
+
+//Função que altera a posição do usuário no Reducer
+export function updateUserCoordinate(latitude, longitude) {
+    //Retorna o Redux Action busInfo/CHANGE_USER_COORDINATE
+    return {
+        type: 'busInfo/CHANGE_USER_COORDINATE',
+        payload: {
+            latitude, longitude
+        },
+    };
+}

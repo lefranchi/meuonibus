@@ -4,7 +4,7 @@ import './Home.css';
 import { Container, Row, Col } from 'react-bootstrap';
 //Importa os componentes
 import BusLineController from '../../Components/BusLine/BusLineController';
-import BusPositionController from '../../Components/BusPosition/BusPositionController';
+import BusStopsController from '../../Components/BusStops/BusStopsController';
 import Header from '../../Components/Header/Header';
 import Menu from '../../Components/Menu/Menu';
 import Footer from '../../Components/Footer/Footer';
@@ -24,7 +24,7 @@ function HomeView(props ) {
                     <BusLineController />
                 </Col>
                 <Col lg="6" xl="6" md="12" sm="12" xs="12">
-                    <BusPositionController />
+                    <BusStopsController />
                 </Col>
             </Row>
             <Row >
